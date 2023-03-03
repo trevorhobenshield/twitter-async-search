@@ -2,7 +2,11 @@ Fast twitter search using undocumented API
 
 ![](assets/example.gif)
 
-### CLI
+```bash
+pip install twitter-async-search
+```
+
+### Example
 ```bash
 twitter-async-search 'query1' 'query2' 
 ```
