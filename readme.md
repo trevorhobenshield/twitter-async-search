@@ -1,3 +1,5 @@
+Fast twitter search using undocumented API
+
 ![](assets/example.gif)
 
 ### CLI
