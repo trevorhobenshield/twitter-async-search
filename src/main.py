@@ -163,7 +163,7 @@ def get_headers(fname: str = None) -> dict:
 
 
 def make_output_dirs(path: str) -> Path:
-    p = Path(path)
+    p = Path('~').expanduser() / path
     (p / 'raw').mkdir(parents=True, exist_ok=True)
     (p / 'processed').mkdir(parents=True, exist_ok=True)
     (p / 'final').mkdir(parents=True, exist_ok=True)
