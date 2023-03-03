@@ -14,7 +14,7 @@ import requests
 
 reset = '\u001b[0m'
 colors = [f'\u001b[{i}m' for i in range(30, 38)]
-logging.config.dictConfig(json.loads(Path('src/log/config.json').read_text()))
+logging.config.dictConfig(json.loads(Path('log/config.json').read_text()))
 logger = logging.getLogger(__name__)
 
 try:
@@ -34,7 +34,7 @@ else:
     asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 
-def search(*args, config: dict, out: str = 'src/data'):
+def search(*args, config: dict, out: str = 'data'):
     out_path = make_output_dirs(out)
     return asyncio.run(process(args, config, out_path))
 
@@ -122,7 +122,7 @@ def get_headers(fname: str = None) -> dict:
     return headers
 
 
-def load_config(path='src/config/search.json'):
+def load_config(path='config/search.json'):
     return json.loads(Path(path).read_text())
 
 
