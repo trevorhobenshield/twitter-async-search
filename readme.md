@@ -10,5 +10,7 @@ pip install twitter-async-search
 ```bash
 twitter-async-search 'query1' 'query2' 
 ```
+Search results are output to `~/data/raw`
 
+### Notes
 - ~400 search results rate limiting occurs
