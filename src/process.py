@@ -2,8 +2,8 @@ import time
 import json
 from pathlib import Path
 
-IN_PATH = Path('data/raw')
-OUT_PATH = Path(f'data/processed/combined_{time.time_ns()}.json')
+IN_PATH = Path('~/data/raw')
+OUT_PATH = Path(f'~/data/processed/combined_{time.time_ns()}.json')
 
 
 def combine_results(in_path: Path = IN_PATH, out_path: Path = OUT_PATH):
