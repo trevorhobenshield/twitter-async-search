@@ -12,7 +12,7 @@ from urllib.parse import quote, urlencode, parse_qs, urlsplit, urlunsplit
 import aiohttp
 import requests
 
-from config import search_config, log_config
+from .config import search_config, log_config
 
 reset = '\u001b[0m'
 colors = [f'\u001b[{i}m' for i in range(30, 38)]
