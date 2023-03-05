@@ -14,7 +14,6 @@ import aiohttp
 import requests
 
 from .config import search_config, log_config
-# from config import search_config, log_config
 
 IN_PATH = Path('~').expanduser() / 'data/raw'
 OUT_PATH = Path('~').expanduser() / f'data/processed/combined_{time.time_ns()}.json'
