@@ -1,4 +1,5 @@
 import asyncio
+import atexit
 import json
 import logging.config
 import random
@@ -13,6 +14,10 @@ import aiohttp
 import requests
 
 from .config import search_config, log_config
+# from config import search_config, log_config
+
+IN_PATH = Path('~').expanduser() / 'data/raw'
+OUT_PATH = Path('~').expanduser() / f'data/processed/combined_{time.time_ns()}.json'
 
 reset = '\u001b[0m'
 colors = [f'\u001b[{i}m' for i in range(30, 38)]
@@ -130,6 +135,18 @@ def make_output_dirs(path: str) -> Path:
     (p / 'processed').mkdir(parents=True, exist_ok=True)
     (p / 'final').mkdir(parents=True, exist_ok=True)
     return p
+
+
+@atexit.register
+def combine_results(in_path: Path = IN_PATH, out_path: Path = OUT_PATH):
+    try:
+        out_path.write_text(json.dumps({
+            k: v
+            for p in in_path.iterdir() if p.suffix == '.json'
+            for k, v in json.loads(p.read_text())['globalObjects']['tweets'].items()
+        }, indent=2))
+    except Exception as e:
+        logger.debug(f'FAILED TO COMBINE RESULTS, {e}')
 
 
 def main() -> int:
