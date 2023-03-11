@@ -1,5 +1,7 @@
 Fast twitter search using undocumented API
 
+Implemented in [Twitter API Client](https://github.com/trevorhobenshield/twitter-api-client)
+
 ![](assets/example.gif)
 
 ```bash
